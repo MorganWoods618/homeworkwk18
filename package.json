@@ -1,0 +1,23 @@
+{
+  "name": "homeworkwk18",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorganWoods618/homeworkwk18.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MorganWoods618/homeworkwk18/issues"
+  },
+  "homepage": "https://github.com/MorganWoods618/homeworkwk18#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.0"
+  }
+}
