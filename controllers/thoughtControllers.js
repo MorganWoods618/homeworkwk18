@@ -1,7 +1,7 @@
 const { User, Thought } = require('../models');
 const thoughtController = {
-  // get all thoughts
-  getThought(req, res) {
+//all thoughts
+    getThought(req, res) {
     Thought.find()
       .then((dbThoughtData) => {
         res.json(dbThoughtData);
@@ -11,7 +11,7 @@ const thoughtController = {
         res.status(500).json(err);
       });
   },
-  // get single user by id
+  //single thought
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .populate('reactions')
@@ -26,7 +26,7 @@ const thoughtController = {
         res.status(500).json(err);
       });
   },
-  // create a new thought
+  // new thought
   createThought(req, res) {
     Thought.create(req.body)
       .then((dbThoughtData) => {
@@ -58,7 +58,7 @@ const thoughtController = {
         res.status(500).json(err);
       });
   },
-
+//delete thought
   deleteThought(req, res) {
     Thought.findOneAndRemove({ _id: req.params.thoughtId })
       .then((dbThoughtData) => {
@@ -73,6 +73,7 @@ const thoughtController = {
         res.status(500).json(err);
       });
   },
+  //add reaction
   addReaction(req, res) {
     Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $addToSet: { reactions: req.body } }, { new: true })
       .then((dbThoughtData) => {
@@ -86,6 +87,7 @@ const thoughtController = {
         res.status(500).json(err);
       });
   },
+  //remove reaction
   removeReaction(req, res) {
     Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $pull: { reactions:{reactionId: req.params.reactionId} } }, { new: true })
       .then((dbThoughtData) => {
