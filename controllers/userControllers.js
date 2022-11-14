@@ -3,7 +3,6 @@ const userController = {
   // get all users
   getUsers(req, res) {
     User.find()
-      .select('-__v')
       .then((dbUserData) => {
         res.json(dbUserData);
       })
@@ -15,7 +14,6 @@ const userController = {
   // get single user by id
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
-      .select('-__v')
       .populate('friends')
       .populate('thoughts')
       .then((dbUserData) => {
